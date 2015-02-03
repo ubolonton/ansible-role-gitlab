@@ -33,3 +33,6 @@ gitlab_smtp_password: ""
 gitlab_smtp_domain: "localhost"
 gitlab_smtp_enable_starttls_auto: "false"
 gitlab_gitlab_email_from: "gitlab@localhost"
+
+gitlab_redis_port: 6379
+gitlab_unicorn_port: 8080

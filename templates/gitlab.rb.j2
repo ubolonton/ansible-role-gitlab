@@ -21,6 +21,9 @@ gitlab_rails['ldap_password'] = '{{ gitlab_ldap_password }}'
 gitlab_rails['ldap_allow_username_or_email_login'] = true
 gitlab_rails['ldap_base'] = '{{ gitlab_ldap_base }}'
 
+# To change other settings, see:
+# https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
+
 gitlab_rails['smtp_enable'] = {{ gitlab_smtp_enable }}
 gitlab_rails['smtp_address'] = '{{ gitlab_smtp_address }}'
 gitlab_rails['smtp_port'] = {{ gitlab_smtp_port }}
@@ -31,5 +34,5 @@ gitlab_rails['smtp_authentication'] = 'login'
 gitlab_rails['smtp_enable_starttls_auto'] = {{ gitlab_smtp_enable_starttls_auto }}
 gitlab_rails['gitlab_email_from'] = '{{ gitlab_gitlab_email_from }}'
 
-# To change other settings, see:
-# https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
+redis['port'] = {{ gitlab_redis_port }}
+unicorn['port'] = {{ gitlab_unicorn_port }}
