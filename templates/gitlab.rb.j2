@@ -1,10 +1,16 @@
 # The URL through which GitLab will be accessed.
 external_url "{{ gitlab_external_url }}"
 
+{% if gitlab_nginx_enabled %}
+nginx['enable'] = true
 # Whether to redirect http to https.
 nginx['redirect_http_to_https'] = {{ gitlab_redirect_http_to_https }}
 nginx['ssl_certificate'] = "{{ gitlab_ssl_certificate }}"
 nginx['ssl_certificate_key'] = "{{ gitlab_ssl_certificate_key }}"
+{% else %}
+# Don't use bundled nginx.
+nginx['enable'] = false
+{% endif %}
 
 # The directory where Git repositories will be stored.
 git_data_dir "{{ gitlab_git_data_dir }}"
@@ -32,7 +38,7 @@ gitlab_rails['smtp_password'] = '{{ gitlab_smtp_password }}'
 gitlab_rails['smtp_domain'] = '{{ gitlab_smtp_domain }}'
 gitlab_rails['smtp_authentication'] = 'login'
 gitlab_rails['smtp_enable_starttls_auto'] = {{ gitlab_smtp_enable_starttls_auto }}
-gitlab_rails['gitlab_email_from'] = '{{ gitlab_gitlab_email_from }}'
+gitlab_rails['gitlab_email_from'] = '{{ gitlab_email_from }}'
 
 redis['port'] = {{ gitlab_redis_port }}
 unicorn['port'] = {{ gitlab_unicorn_port }}

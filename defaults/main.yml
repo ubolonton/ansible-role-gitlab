@@ -6,7 +6,8 @@ gitlab_package_url: ""
 gitlab_external_url: "https://gitlab/"
 gitlab_git_data_dir: "/var/opt/gitlab/git-data"
 
-# SSL Configuration.
+# nginx configuration
+gitlab_nginx_enabled: true
 gitlab_redirect_http_to_https: "true"
 gitlab_ssl_certificate: "/etc/gitlab/ssl/gitlab.crt"
 gitlab_ssl_certificate_key: "/etc/gitlab/ssl/gitlab.key"
@@ -32,7 +33,7 @@ gitlab_smtp_user_name: ""
 gitlab_smtp_password: ""
 gitlab_smtp_domain: "localhost"
 gitlab_smtp_enable_starttls_auto: "false"
-gitlab_gitlab_email_from: "gitlab@localhost"
+gitlab_email_from: "gitlab@localhost"
 
 gitlab_redis_port: 6379
 gitlab_unicorn_port: 8080
