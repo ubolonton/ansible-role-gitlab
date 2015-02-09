@@ -10,6 +10,7 @@ nginx['ssl_certificate_key'] = "{{ gitlab_ssl_certificate_key }}"
 {% else %}
 # Don't use bundled nginx.
 nginx['enable'] = false
+web_server['external_users'] = ['www-data']
 {% endif %}
 
 # The directory where Git repositories will be stored.
